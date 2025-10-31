@@ -1,0 +1,39 @@
+{
+  "name": "medo-ps",
+  "version": "1.0.0",
+  "description": "Medo PS - PlayStation shop POS (Electron + React + SQLite)",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build && electron-builder",
+    "start": "electron ."
+  },
+  "build": {
+    "appId": "com.medops.app",
+    "productName": "Medo PS",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "renderer/**/*",
+      "schema.sql"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/icon.ico"
+    }
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.0",
+    "concurrently": "^7.6.0",
+    "wait-on": "^7.0.1",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "better-sqlite3": "^8.0.0"
+  }
+}
